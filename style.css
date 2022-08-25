@@ -1,37 +1,154 @@
 * {
-box-sizing: border-box;
-padding: 0;
-margin: 0;
-outline: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
 }
 
 body {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+
 }
 
-.wheel {
+.mainbox {
     position: relative;
-    height: 500px;
     width: 500px;
+    height: 500px;
+    margin-top: 50px;
 }
 
-.sa {
+.mainbox:after {
+    position: absolute;
+    content: "";
+    width: 450%;
+    height: 200%;
+    background: url(./arrow-edit.png) no-repeat;
+    background-size: 5%;
+    left: 85%;
+    top: 45%;
+}
+
+.box {
     width: 100%;
     height: 100%;
     position: relative;
     border-radius: 50%;
-    border: 8px solid black;
+    border: 10px solid black;
+    overflow: hidden;
+    transition: all ease-in-out 5s;
+    transform: rotate(90deg);
 }
 
 span {
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     display: inline-block;
     position: absolute;
 }
 
-.spa {
+.span1 {
+    clip-path: inset(0 0 50% 50%);
+    background: red;
+}
 
+.span2 {
+    clip-path: inset(0 50% 50% 0);
+    background: blue;
+}
+
+.span3 {
+    clip-path: inset(50% 50% 0 0);
+    background: yellow;
+}
+
+.span4 {
+    clip-path: inset(50% 0 0 50%);
+    background: purple;
+}
+
+.box2 {
+    width: 100%;
+    height: 100%;
+    transform: rotate(180deg);
+}
+
+.font {
+    color: white;
+    font-size: 20px;
+}
+
+.box1 .span1 h2 {
+    position: relative;
+    top: 25%;
+    left: 25%;
+    transform: rotate(210deg);
+    text-align: center;
+}
+
+.box1 .span2 h2 {
+    position: relative;
+    top: 25%;
+    right: 25%;
+    transform: rotate(140deg);
+    text-align: center;
+}
+
+.box1 .span3 h2 {
+    position: relative;
+    top: 70%;
+    right: 25%;
+    transform: rotate(30deg);
+    text-align: center;
+}
+
+.box1 .span4 h2 {
+    position: relative;
+    top: 70%;
+    left: 25%;
+    transform: rotate(-30deg);
+    text-align: center;
+}
+
+.spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 4px solid black;
+    background: white;
+    box-shadow: 0 5px 20px #000;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+button h3 {
+    transform: rotate(270deg);
+}
+
+.spin:active {
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+}
+
+.mainbox.animate:after {
+    animation:animateArrow 0.7s ease infinite;
+}
+
+audio {
+    display: none;
+}
+
+@keyframes animateArrow {
+    50%{
+        right: -50px;
+    }
 }
