@@ -4,17 +4,23 @@
         <title>Wheel Spin</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body></body>
-            <div class="mainbox" id="mainbox">
-                <div class="box" id="box">
-                    <div class="box1">
-                        <span class="font span1"><h2> tv </h2></span>
-                        <span class="font span2"><h2> tv </h2></span>
-                        <span class="font span3"><h2> tv </h2></span>
-                        <span class="font span4"><h2> tv </h2></span>
+    <body>
+        <article>
+                <input type="text" id="blk1" placeholder="Winner's Choice">
+                <input type="text" id="blk2" placeholder="Loser's Choice">
+                <input type="text" id="blk3" placeholder="Loser's Choice">
+                <input type="text" id="blk4" placeholder="Loser's Choice">
+                <input type="button" value="add" id="submit">
+        </article>
+            <div class="mainbox" id="mainbox"> <!--wheel-->
+                <div class="box" id="box"> <!--sa-->
+                    <div class="box1"> <!--sa1-->
+                        <div class="font span1" id="winner"></div>
+                        <span class="font span2" id="loser"></span>
+                        <span class="font span3" id="loser2"></span>
+                        <span class="font span4" id="loser3"></span>
                     </div>
- 
-                    <button class="spin" onclick="spin()"><h3>SPIN</h3></button>
+                    <button class="spin" id="btn"><h3>SPIN</h3></button>
                 </div>
             </div>
         <audio
@@ -28,6 +34,6 @@
         id="wheel"
         src=""
         type="audion/mp3"></audio>
-    </body>
-    <script src="main.js"></script>
+        </body>
+        <script src="main.js"></script>
 </html>

@@ -1,55 +1,30 @@
-function shuffle(array) {
-    let currentIndex = array.length,
-    randomIndex;
+const wheelBtn = document.getElementById("btn")
+const wheelCircle = document.getElementById("box")
+const winnerBox = document.getElementById("winner")
+const loserBox = document.getElementById("loser")
+const loserBox2 = document.getElementById("loser2")
+const loserBox3 = document.getElementById("loser3")
+const subBtn = document.getElementById("submit")
+const win1 = document.getElementById("blk1")
+const lsr = document.getElementById("blk2")
+const lsr2 = document.getElementById("blk3")
+const lsr3 = document.getElementById("blk4")
 
-    while(0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random()*currentIndex)
-        currentIndex--;
-        [array[currentIndex, array[randomIndex]] = 
-        array[currentIndex],
-        array[currentIndex],
-    ]
-    }
-    return array;
-}
-
-function spin() {
-    wheel.play();
-    const box = document.getElementById("box")
-    const element = document.getElementById("mainbox")
-    let selectedItem = "";
-
-    let item1 = shuffle([1890, 2250, 2610])
-    let item2 = shuffle([8493, 3483, 2931])
-    let item3 = shuffle([1982, 5463, 5522])
-    let item4 = shuffle([6764, 1928, 5543])
-
-    let results = shuffle([
-        item1[0],
-        item2[0],
-        item3[0],
-        item4[0]
-    ])
-
-    if(item1.includes(results[0])) selectedItem = "1"
-    if(item2.includes(results[0])) selectedItem = "2"
-    if(item3.includes(results[0])) selectedItem = "3"
-    if(item4.includes(results[0])) selectedItem = "4"
-
-    box.style.setProperty("transition", "all ease 5s")
-    box.style.transform = "rotate(" + results[0] + "deg)"
-    element.classList.remove("animate")
-    setTimeout(function(){
-        element.classList.add("animate")
-    }, 5000)
-
-setTimeout(function(){
-    
+wheelBtn.addEventListener("click", () => {
+  let x = 1024
+  let b = 9999
+  let dgre = Math.floor(Math.random()*(x-b))+b
+  wheelCircle.style.transform="rotate("+dgre+"deg)"
 })
 
-setTimeout(function(){
-    box.style.setProperty("transition", "initial")
-    box.style.transform = "rotate(90deg)"
-}, 6000)
+subBtn.addEventListener("click", () => {
+    winnerBox.innerHTML = `<h2> ${win1.value} </h2>`
+    loserBox.innerHTML = `<h2> ${lsr.value} </h2>`
+    loserBox2.innerHTML = `<h2> ${lsr2.value} </h2>`
+    loserBox3.innerHTML = `<h2> ${lsr3.value} </h2>`
 
-}
+    win1.value = ""
+    lsr.value = ""
+    lsr2.value = ""
+    lsr3.value = ""
+})
